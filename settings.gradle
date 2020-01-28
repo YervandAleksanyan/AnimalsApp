@@ -1,2 +1,2 @@
-include ':app', ':core', ':viewmodel'
+include ':app', ':core', ':viewmodel', ':testscore'
 rootProject.name='AnimalsApp'
