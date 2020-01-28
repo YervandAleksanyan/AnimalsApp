@@ -1,7 +1,7 @@
-package com.providers.implementation
+package com.task.animalsapp.core.providers.implementation
 
-import com.providers.IConfigurationProvider
 import com.task.animalsapp.core.BuildConfig
+import com.task.animalsapp.core.providers.IConfigurationProvider
 
 class ConfigurationProvider : IConfigurationProvider {
 
