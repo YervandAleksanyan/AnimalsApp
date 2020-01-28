@@ -50,6 +50,9 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 
+    api project(':core')
+    api project(':viewmodel')
+
     //support
     api "androidx.annotation:annotation:${versions.annotation}"
     api "androidx.appcompat:appcompat:${versions.appCompat}"

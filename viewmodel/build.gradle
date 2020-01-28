@@ -26,16 +26,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     androidExtensions {
         experimental = true
-    }
-
-    sourceSets {
-        main { java.srcDirs = ['src/main/java', 'src/test/java/com.tickster.boxpoint.core'] }
     }
 
     testOptions {
@@ -43,33 +45,28 @@ android {
             useJUnitPlatform()
         }
     }
+
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    api project(':core')
+    //DI
+    implementation "org.koin:koin-android-viewmodel:${versions.koin}"
 
-    //Koin
-    api "org.koin:koin-core-ext:${versions.koin}"
 
-    //Networking
-    api "com.squareup.retrofit2:retrofit:${versions.retrofit}"
-    api "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
-    api "com.squareup.okhttp3:okhttp:${versions.okhttpVersion}"
-    api "com.squareup.okhttp3:logging-interceptor:${versions.okhttpVersion}"
-    api "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${versions.coroutinesAdapter}"
+    //AAC libraries
+    api "androidx.lifecycle:lifecycle-extensions:${versions.lifecycleLibrary}"
+    kapt "androidx.lifecycle:lifecycle-common-java8:${versions.lifecycleLibrary}"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycleLibrary}"
+    kapt "androidx.databinding:databinding-compiler:${versions.binding}"
 
-    //Helpers
-    api "org.greenrobot:eventbus:${versions.eventBus}"
-
-    //Coroutines library
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
-
-    //junit
-//    testImplementation project(":testscore")
+    //unit tests
+//    testImplementation project(':testscore')
     testImplementation "junit:junit:${versions.junit}"
-    testImplementation 'org.koin:koin-test:2.0.1'
+    testImplementation "androidx.arch.core:core-testing:${versions.lifecycleLibraryTest}"
+
     testImplementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
     testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.coroutines}"
     testImplementation "org.spekframework.spek2:spek-dsl-jvm:${versions.spek}"
