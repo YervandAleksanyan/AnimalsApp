@@ -6,7 +6,7 @@ import com.task.animalsapp.viewmodel.R
 import com.task.animalsapp.viewmodel.base.IBlockingAsyncCommand
 import com.task.animalsapp.viewmodel.base.IDisposableAsyncCommand
 import com.task.animalsapp.viewmodel.base.ImmutableLiveData
-import com.task.animalsapp.viewmodel.getString
+import com.task.animalsapp.viewmodel.utils.getString
 import kotlinx.coroutines.*
 
 abstract class BaseAsyncCommand : BaseCommand(), IDisposableAsyncCommand, IBlockingAsyncCommand {
@@ -87,7 +87,8 @@ abstract class BaseAsyncCommand : BaseCommand(), IDisposableAsyncCommand, IBlock
     protected open suspend fun handleError(ex: Throwable) {
         exception = ex
         when {
-            else -> failureMessageMutable.value = getString(R.string.unknown_error)
+            else -> failureMessageMutable.value =
+                getString(R.string.unknown_error)
         }
     }
 

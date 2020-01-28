@@ -1,9 +1,9 @@
-package com.task.animalsapp.viewmodel
+package com.task.animalsapp.viewmodel.utils
 
 import android.content.Context
 import android.content.res.Resources
 import androidx.annotation.StringRes
-import com.task.animalsapp.viewmodel.Res.resources
+import com.task.animalsapp.viewmodel.utils.Res.resources
 import org.koin.core.KoinComponent
 import org.koin.core.get
 

@@ -1,4 +1,4 @@
-package com.task.animalsapp.core
+package com.task.animalsapp.core.utils
 
 interface IDisposable {
     fun dispose()

@@ -1,7 +1,7 @@
 package com.task.animalsapp.viewmodel.base.implementation
 
 import androidx.lifecycle.ViewModel
-import com.task.animalsapp.core.IDisposable
+import com.task.animalsapp.core.utils.IDisposable
 import com.task.animalsapp.core.utils.Scoped
 import com.task.animalsapp.core.utils.weak
 import com.task.animalsapp.viewmodel.base.ICommand
