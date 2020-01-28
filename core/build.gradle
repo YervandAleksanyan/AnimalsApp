@@ -23,7 +23,11 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            buildConfigField "String", "ENDPOINT", ENDPOINT
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug{
+            buildConfigField "String", "ENDPOINT", ENDPOINT
         }
     }
     compileOptions {
@@ -35,7 +39,7 @@ android {
     }
 
     sourceSets {
-        main { java.srcDirs = ['src/main/java', 'src/test/java/com.tickster.boxpoint.core'] }
+        main { java.srcDirs = ['src/main/java', 'src/test/java/com/task/animalsapp/core'] }
     }
 
     testOptions {
