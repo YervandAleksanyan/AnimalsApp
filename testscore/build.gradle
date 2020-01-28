@@ -1,0 +1,40 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+android {
+    compileSdkVersion = project.ext.sharedCompileSdkVersion
+    buildToolsVersion = project.ext.sharedBuildToolsVersion
+
+
+    defaultConfig {
+        minSdkVersion project.ext.sharedMinSdkVersion
+        targetSdkVersion project.ext.sharedTargetSdkVersion
+        versionCode project.ext.appVersionCode
+        versionName project.ext.appVersionName
+
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    api project(":core")
+
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
+    api "org.koin:koin-core:${versions.koin}"
+
+    api "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.coroutines}"
+    api "org.spekframework.spek2:spek-dsl-jvm:${versions.spek}"
+    api "io.mockk:mockk:${versions.mockk}"
+    api "com.squareup.okhttp3:mockwebserver:${versions.mockWebServer}"
+}
