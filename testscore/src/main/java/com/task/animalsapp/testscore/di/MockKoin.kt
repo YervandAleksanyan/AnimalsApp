@@ -1,7 +1,7 @@
 package com.task.animalsapp.testscore.di
 
 import android.content.Context
-import com.providers.IConfigurationProvider
+import com.task.animalsapp.core.providers.IConfigurationProvider
 import com.task.animalsapp.testscore.extensions.port
 import io.mockk.every
 import io.mockk.mockk
