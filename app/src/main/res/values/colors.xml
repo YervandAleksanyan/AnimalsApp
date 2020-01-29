@@ -5,4 +5,6 @@
     <color name="colorAccent">#D81B60</color>
     <color name="color_one">#131E29</color>
     <color name="color_three">#FF0069A6</color>
+    <color name="color_three_opacity">#1A0069A6</color>
+    <color name="selected_animal_cell_background_color">#0069A6</color>
 </resources>

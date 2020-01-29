@@ -1,7 +1,7 @@
-package com.task.animalsapp.view.common.bindableRecylcerView.callbacks
+package com.task.animalsapp.view.controls.bindableRecylcerView.callbacks
 
 import androidx.databinding.ObservableList
-import com.task.animalsapp.view.common.bindableRecylcerView.adapters.BaseBindableRecyclerViewAdapter
+import com.task.animalsapp.view.controls.bindableRecylcerView.adapters.BaseBindableRecyclerViewAdapter
 import java.lang.ref.WeakReference
 
 open class OnListChangedCallback<T>(

@@ -1,13 +1,13 @@
-package com.task.animalsapp.view.common.bindableRecylcerView
+package com.task.animalsapp.view.controls.bindableRecylcerView
 
 import android.content.Context
 import android.util.AttributeSet
 import androidx.recyclerview.widget.RecyclerView
-import com.task.animalsapp.view.common.bindableRecylcerView.adapters.BaseBindableRecyclerViewAdapter
-import com.task.animalsapp.view.common.bindableRecylcerView.adapters.BindableRecyclerViewAdapter
-import com.task.animalsapp.view.common.bindableRecylcerView.bindings.ItemBinder
-import com.task.animalsapp.view.common.bindableRecylcerView.eventHandlers.ClickHandler
-import com.task.animalsapp.view.common.bindableRecylcerView.eventHandlers.LongClickHandler
+import com.task.animalsapp.view.controls.bindableRecylcerView.adapters.BaseBindableRecyclerViewAdapter
+import com.task.animalsapp.view.controls.bindableRecylcerView.adapters.BindableRecyclerViewAdapter
+import com.task.animalsapp.view.controls.bindableRecylcerView.bindings.ItemBinder
+import com.task.animalsapp.view.controls.bindableRecylcerView.eventHandlers.ClickHandler
+import com.task.animalsapp.view.controls.bindableRecylcerView.eventHandlers.LongClickHandler
 
 open class BindableRecyclerView<T> @JvmOverloads constructor(
     context: Context,

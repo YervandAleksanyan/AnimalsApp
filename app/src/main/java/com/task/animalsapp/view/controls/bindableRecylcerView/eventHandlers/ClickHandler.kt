@@ -1,4 +1,4 @@
-package com.task.animalsapp.view.common.bindableRecylcerView.eventHandlers
+package com.task.animalsapp.view.controls.bindableRecylcerView.eventHandlers
 
 import android.view.View
 

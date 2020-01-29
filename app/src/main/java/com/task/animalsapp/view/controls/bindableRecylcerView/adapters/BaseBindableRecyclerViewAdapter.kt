@@ -1,4 +1,4 @@
-package com.task.animalsapp.view.common.bindableRecylcerView.adapters
+package com.task.animalsapp.view.controls.bindableRecylcerView.adapters
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,11 +8,11 @@ import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableList
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
-import com.task.animalsapp.view.common.bindableRecylcerView.ViewHolder
-import com.task.animalsapp.view.common.bindableRecylcerView.bindings.ItemBinder
-import com.task.animalsapp.view.common.bindableRecylcerView.callbacks.OnListChangedCallback
-import com.task.animalsapp.view.common.bindableRecylcerView.eventHandlers.ClickHandler
-import com.task.animalsapp.view.common.bindableRecylcerView.eventHandlers.LongClickHandler
+import com.task.animalsapp.view.controls.bindableRecylcerView.ViewHolder
+import com.task.animalsapp.view.controls.bindableRecylcerView.bindings.ItemBinder
+import com.task.animalsapp.view.controls.bindableRecylcerView.callbacks.OnListChangedCallback
+import com.task.animalsapp.view.controls.bindableRecylcerView.eventHandlers.ClickHandler
+import com.task.animalsapp.view.controls.bindableRecylcerView.eventHandlers.LongClickHandler
 
 abstract class BaseBindableRecyclerViewAdapter<T>(
     newItems: Collection<T>?,

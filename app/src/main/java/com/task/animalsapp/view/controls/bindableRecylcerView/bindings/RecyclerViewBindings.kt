@@ -1,9 +1,9 @@
-package com.task.animalsapp.view.common.bindableRecylcerView.bindings
+package com.task.animalsapp.view.controls.bindableRecylcerView.bindings
 
 import androidx.databinding.BindingAdapter
-import com.task.animalsapp.view.common.bindableRecylcerView.BindableRecyclerView
-import com.task.animalsapp.view.common.bindableRecylcerView.eventHandlers.ClickHandler
-import com.task.animalsapp.view.common.bindableRecylcerView.eventHandlers.LongClickHandler
+import com.task.animalsapp.view.controls.bindableRecylcerView.BindableRecyclerView
+import com.task.animalsapp.view.controls.bindableRecylcerView.eventHandlers.ClickHandler
+import com.task.animalsapp.view.controls.bindableRecylcerView.eventHandlers.LongClickHandler
 
 @BindingAdapter("items")
 fun <T> setItems(
