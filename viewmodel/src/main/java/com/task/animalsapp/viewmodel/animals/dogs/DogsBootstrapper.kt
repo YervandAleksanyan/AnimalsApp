@@ -26,14 +26,12 @@ object DogsBootstrapper {
                 scoped { (viewModel: DogsViewModel) ->
                     LoadDogsCommand(
                         viewModel,
-                        get(),
                         get()
                     )
                 }
                 scoped { (viewModel: DogsViewModel) ->
                     SelectDogCommand(
-                        viewModel,
-                        get()
+                        viewModel
                     )
                 }
             }

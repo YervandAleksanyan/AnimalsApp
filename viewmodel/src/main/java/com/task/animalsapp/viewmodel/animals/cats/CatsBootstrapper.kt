@@ -26,14 +26,12 @@ object CatsBootstrapper {
                 scoped { (viewModel: CatsViewModel) ->
                     LoadCatsCommand(
                         viewModel,
-                        get(),
                         get()
                     )
                 }
                 scoped { (viewModel: CatsViewModel) ->
                     SelectCatCommand(
-                        viewModel,
-                        get()
+                        viewModel
                     )
                 }
             }
