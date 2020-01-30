@@ -1,6 +1,7 @@
 package com.task.animalsapp.view.cats
 
 import android.view.View
+import com.task.animalsapp.view.animaldetails.AnimalDetailsActivity
 import com.task.animalsapp.view.base.BaseAnimalFragment
 import com.task.animalsapp.view.controls.bindableRecylcerView.eventHandlers.ClickHandler
 import com.task.animalsapp.viewmodel.animals.base.implementation.AnimalItemViewModel
@@ -20,7 +21,7 @@ class CatsFragment : BaseAnimalFragment() {
             override fun onClick(animalViewModel: AnimalItemViewModel?, view: View) {
                 viewModel.catToSelect = animalViewModel
                 viewModel.selectCatCommand.execute()
+                AnimalDetailsActivity.start(context!!, viewModel.selectedCat!!)
             }
         }
-
 }

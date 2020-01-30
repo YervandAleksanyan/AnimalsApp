@@ -42,11 +42,7 @@ android {
         main { java.srcDirs = ['src/main/java', 'src/test/java/com/task/animalsapp/core'] }
     }
 
-    testOptions {
-        unitTests.all {
-            useJUnitPlatform()
-        }
-    }
+
 }
 
 dependencies {
@@ -69,15 +65,4 @@ dependencies {
     //Coroutines library
     api "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
     api "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}"
-
-    //junit
-    testImplementation project(":testscore")
-    testImplementation "junit:junit:${versions.junit}"
-    testImplementation 'org.koin:koin-test:2.0.1'
-    testImplementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.coroutines}"
-    testImplementation "org.spekframework.spek2:spek-dsl-jvm:${versions.spek}"
-    testImplementation "org.spekframework.spek2:spek-runner-junit5:${versions.spek}"
-    testImplementation "io.kotlintest:kotlintest-runner-junit5:${versions.kotlinTest}"
-    testImplementation "io.mockk:mockk:${versions.mockk}"
 }

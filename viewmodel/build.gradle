@@ -39,13 +39,6 @@ android {
     androidExtensions {
         experimental = true
     }
-
-    testOptions {
-        unitTests.all {
-            useJUnitPlatform()
-        }
-    }
-
 }
 
 dependencies {
@@ -61,16 +54,4 @@ dependencies {
     kapt "androidx.lifecycle:lifecycle-common-java8:${versions.lifecycleLibrary}"
     api "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycleLibrary}"
     kapt "androidx.databinding:databinding-compiler:${versions.binding}"
-
-    //unit tests
-    testImplementation project(':testscore')
-    testImplementation "junit:junit:${versions.junit}"
-    testImplementation "androidx.arch.core:core-testing:${versions.lifecycleLibraryTest}"
-
-    testImplementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:${versions.coroutines}"
-    testImplementation "org.spekframework.spek2:spek-dsl-jvm:${versions.spek}"
-    testImplementation "org.spekframework.spek2:spek-runner-junit5:${versions.spek}"
-    testImplementation "io.kotlintest:kotlintest-runner-junit5:${versions.kotlinTest}"
-    testImplementation "io.mockk:mockk:${versions.mockk}"
 }
