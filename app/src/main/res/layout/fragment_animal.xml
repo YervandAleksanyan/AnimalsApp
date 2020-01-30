@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.task.animalsapp.viewmodel.animals.base.IAnimalBaseViewModel" />
+
+        <variable
+            name="view"
+            type="com.task.animalsapp.view.base.BaseAnimalFragment" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_one"
+        android:orientation="vertical">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            isBusy="@{viewModel.loadCommand.isBusy}"
+            loadCommand="@{viewModel.loadCommand}"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="match_parent">
+
+
+            <com.task.animalsapp.view.controls.bindableRecylcerView.BindableRecyclerView
+                android:id="@+id/animals_rv"
+                itemBinder="@{view}"
+                items="@{viewModel.items}"
+                clickHandler="@{view.getAnimalClickHandler()}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+
+    </FrameLayout>
+</layout>
