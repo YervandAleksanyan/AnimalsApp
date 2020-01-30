@@ -16,19 +16,7 @@ ext {
             appCompat           : '1.1.0',
             koin                : '2.0.1',
             fragmentKtx          : '1.2.0',
-            picasso             : '2.71828',
-
-            // Test dependencies
-            espressoCore        : '3.2.0',
-            junit               : '4.13-beta-2',
-            supportTest         : '1.0.2',
-            junitRules          : '1.1.1',
-            kakao               : '2.2.0',
-            androidJunit        : '1.1.0',
-            kotlinTest          : '3.4.1',
-            mockk               : '1.9.2',
-            spek                : '2.0.8',
-            mockWebServer       : '3.12.1'
+            picasso             : '2.71828'
 
     ]
 }
