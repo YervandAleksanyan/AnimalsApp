@@ -17,7 +17,7 @@ class LoadDogsCommand(
             AnimalItemViewModel(
                 id = index.toString(),
                 title = it.title,
-                url = it.url.replace("http", "https")
+                url = it.url
             )
         }
         viewModel.itemsMutable.value = result
