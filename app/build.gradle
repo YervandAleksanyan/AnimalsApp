@@ -6,8 +6,6 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'kotlin-kapt'
 
-apply plugin: "androidx.navigation.safeargs.kotlin"
-
 
 android {
     compileSdkVersion = project.ext.sharedCompileSdkVersion
@@ -57,6 +55,10 @@ dependencies {
     api "androidx.annotation:annotation:${versions.annotation}"
     api "androidx.appcompat:appcompat:${versions.appCompat}"
     implementation 'com.google.android.material:material:1.0.0'
+    implementation "androidx.fragment:fragment-ktx:${versions.fragmentKtx}"
+    implementation "com.squareup.picasso:picasso:${versions.picasso}"
+
+
 
     //DI
     implementation "org.koin:koin-android:${versions.koin}"
@@ -68,7 +70,4 @@ dependencies {
     //binding
     kapt "androidx.databinding:databinding-compiler:${versions.binding}"
 
-    //Navigation
-    implementation "androidx.navigation:navigation-fragment-ktx:${versions.navigationLibrary}"
-    implementation "androidx.navigation:navigation-ui-ktx:${versions.navigationLibrary}"
 }

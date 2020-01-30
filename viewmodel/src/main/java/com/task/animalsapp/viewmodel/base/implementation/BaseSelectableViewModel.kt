@@ -2,7 +2,7 @@ package com.task.animalsapp.viewmodel.base.implementation
 
 import androidx.databinding.BaseObservable
 import androidx.databinding.Bindable
-import com.task.animalsapp.viewmodel.BR
+import androidx.databinding.library.baseAdapters.BR
 import com.task.animalsapp.viewmodel.base.ISelectableViewModel
 
 open class BaseSelectableViewModel(selected: Boolean = false) : BaseObservable(),
