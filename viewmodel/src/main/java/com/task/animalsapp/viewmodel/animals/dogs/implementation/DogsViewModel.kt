@@ -1,23 +1,23 @@
-package com.task.animalsapp.viewmodel.animals.cats.implementation
+package com.task.animalsapp.viewmodel.animals.dogs.implementation
 
 import com.task.animalsapp.core.utils.Scoped
 import com.task.animalsapp.viewmodel.animals.base.implementation.AnimalItemViewModel
-import com.task.animalsapp.viewmodel.animals.cats.ICatsViewModel
+import com.task.animalsapp.viewmodel.animals.dogs.IDogsViewModel
 import com.task.animalsapp.viewmodel.base.IAsyncCommand
 import com.task.animalsapp.viewmodel.base.ICommand
 import com.task.animalsapp.viewmodel.utils.getCommandFactory
 
-class CatsViewModel : ICatsViewModel(), Scoped {
+class DogsViewModel : IDogsViewModel(), Scoped {
 
-    private val commandFactory = getCommandFactory<CatsViewModelCommandFactory>()
+    private val commandFactory = getCommandFactory<DogsViewModelCommandFactory>()
 
-    override var catToSelect: AnimalItemViewModel? = null
+    override var dogToSelect: AnimalItemViewModel? = null
 
-    override var selectedCat: AnimalItemViewModel? = null
+    override var selectedDog: AnimalItemViewModel? = null
 
     override val loadCommand: IAsyncCommand = commandFactory.loadCommand
 
-    override val selectCatCommand: ICommand = commandFactory.selectCatCommand
+    override val selectDogCommand: ICommand = commandFactory.selectDogCommand
 
     override fun onCleared() {
         super.onCleared()

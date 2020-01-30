@@ -10,4 +10,5 @@ interface IAnimalBaseViewModel {
 
     val loadCommand: IAsyncCommand
 
+
 }

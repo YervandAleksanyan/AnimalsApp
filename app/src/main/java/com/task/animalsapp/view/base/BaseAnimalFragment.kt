@@ -1,4 +1,4 @@
-package com.task.animalsapp.view.cat
+package com.task.animalsapp.view.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,21 +11,17 @@ import com.task.animalsapp.BR
 import com.task.animalsapp.R
 import com.task.animalsapp.databinding.FragmentAnimalBinding
 import com.task.animalsapp.view.controls.bindableRecylcerView.bindings.ItemBinder
+import com.task.animalsapp.view.controls.bindableRecylcerView.eventHandlers.ClickHandler
 import com.task.animalsapp.view.utils.MarginItemDecoration
+import com.task.animalsapp.viewmodel.animals.base.IAnimalBaseViewModel
 import com.task.animalsapp.viewmodel.animals.base.implementation.AnimalItemViewModel
-import com.task.animalsapp.viewmodel.animals.cats.ICatsViewModel
 import kotlinx.android.synthetic.main.fragment_animal.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class CatsFragment : Fragment(), ItemBinder<AnimalItemViewModel> {
-
-    companion object {
-        fun newInstance() = CatsFragment()
-    }
+abstract class BaseAnimalFragment : Fragment(), ItemBinder<AnimalItemViewModel> {
 
     private lateinit var binding: FragmentAnimalBinding
 
-    private val viewModel: ICatsViewModel by viewModel()
+    abstract val viewModel: IAnimalBaseViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -38,14 +34,23 @@ class CatsFragment : Fragment(), ItemBinder<AnimalItemViewModel> {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        if (savedInstanceState == null) {
+            viewModel.loadCommand.execute()
+        }
         initBindings()
         intRv()
-        viewModel.loadCommand.execute()
     }
 
+    override fun getLayoutRes(model: AnimalItemViewModel): Int =
+        R.layout.cell_animal
+
+    override fun getBindingVariable(model: AnimalItemViewModel): Int = BR.viewModel
+
+    abstract fun getAnimalClickHandler(): ClickHandler<AnimalItemViewModel>
+
     private fun intRv() {
-        cats_rv.layoutManager = LinearLayoutManager(context)
-        cats_rv.addItemDecoration(
+        animals_rv.layoutManager = LinearLayoutManager(context)
+        animals_rv.addItemDecoration(
             MarginItemDecoration(
                 context?.resources?.getDimension(R.dimen.list_view_vertical_margin)!!.toInt(),
                 context?.resources?.getDimension(R.dimen.list_view_horizontal_margin)!!.toInt()
@@ -58,9 +63,4 @@ class CatsFragment : Fragment(), ItemBinder<AnimalItemViewModel> {
         binding.view = this
         binding.lifecycleOwner = viewLifecycleOwner
     }
-
-    override fun getLayoutRes(model: AnimalItemViewModel): Int =
-        R.layout.cell_animal
-
-    override fun getBindingVariable(model: AnimalItemViewModel): Int = BR.viewModel
 }

@@ -6,10 +6,11 @@ import androidx.lifecycle.ViewModel
 import com.task.animalsapp.viewmodel.animals.base.IAnimalBaseViewModel
 import com.task.animalsapp.viewmodel.base.ImmutableLiveData
 
-abstract class AnimalBaseViewModel : ViewModel(),
+abstract class BaseAnimalViewModel : ViewModel(),
     IAnimalBaseViewModel {
 
     internal val itemsMutable = MutableLiveData<List<AnimalItemViewModel>>()
 
     override val items: LiveData<List<AnimalItemViewModel>> = ImmutableLiveData(itemsMutable)
+
 }

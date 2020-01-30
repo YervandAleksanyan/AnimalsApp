@@ -2,11 +2,12 @@ package com.task.animalsapp.view
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.commit
 import com.google.android.material.tabs.TabLayout
 import com.task.animalsapp.R
-import com.task.animalsapp.view.cat.CatsFragment
-import com.task.animalsapp.view.dog.DogsFragment
+import com.task.animalsapp.view.cats.CatsFragment
+import com.task.animalsapp.view.dogs.DogsFragment
 import kotlinx.android.synthetic.main.activity_starter.*
 
 
@@ -15,25 +16,45 @@ class StarterActivity : AppCompatActivity() {
     companion object {
         var tabPosition = 0
         const val TAB_POSITION_KEY = "tab_position_key"
+        const val CAT_FRAG_TAG = "cat_frag_tag"
+        const val DOG_FRAG_TAG = "dog_frag_tag"
     }
+
+    private var catsFragment: Fragment? = null
+    private var dogsFragment: Fragment? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_starter)
         initListener()
-        supportFragmentManager.commit {
-            replace(R.id.container, CatsFragment.newInstance())
+        if (savedInstanceState == null) {
+            supportFragmentManager.commit {
+                catsFragment = CatsFragment.newInstance()
+                add(R.id.container, catsFragment!!, CAT_FRAG_TAG)
+            }
         }
     }
+
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         outState.putInt(TAB_POSITION_KEY, tabPosition)
+        catsFragment?.let {
+            supportFragmentManager.putFragment(outState, CAT_FRAG_TAG, it)
+        }
+        dogsFragment?.let {
+            supportFragmentManager.putFragment(outState, DOG_FRAG_TAG, it)
+        }
     }
 
     override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
         super.onRestoreInstanceState(savedInstanceState)
-        tabs.getTabAt(savedInstanceState?.getInt(TAB_POSITION_KEY) ?: 0)?.select()
+        catsFragment =
+            supportFragmentManager.getFragment(savedInstanceState!!, CAT_FRAG_TAG)
+        dogsFragment =
+            supportFragmentManager.getFragment(savedInstanceState, DOG_FRAG_TAG)
+        tabs.getTabAt(savedInstanceState.getInt(TAB_POSITION_KEY))?.select()
     }
 
     private fun initListener() {
@@ -49,13 +70,23 @@ class StarterActivity : AppCompatActivity() {
                 when (tabPosition) {
                     0 -> {
                         supportFragmentManager.commit {
-                            replace(R.id.container, CatsFragment.newInstance())
+                            show(catsFragment!!)
+                            hide(dogsFragment!!)
                         }
                     }
                     1 -> {
-                        supportFragmentManager.commit {
-                            replace(R.id.container, DogsFragment.newInstance())
+                        if (dogsFragment == null) {
+                            supportFragmentManager.commit {
+                                dogsFragment = DogsFragment.newInstance()
+                                add(R.id.container, dogsFragment!!, DOG_FRAG_TAG)
+                            }
+                        } else {
+                            supportFragmentManager.commit {
+                                hide(catsFragment!!)
+                                show(dogsFragment!!)
+                            }
                         }
+
                     }
                 }
             }
